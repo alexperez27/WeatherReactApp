@@ -1,7 +1,7 @@
 import React from 'react';
 import WeatherTemperature from './WeatherTemperature';
 import WeatherExtraInfo from './WeatherExtraInfo';
-import { CLOUD, CLOUDY, SUN, SNOW, WINDY } from '../../../constants/weathers';
+//import { CLOUD, CLOUDY, SUN, SNOW, WINDY } from '../../../constants/weathers';
 import { PropTypes } from "prop-types";
 
 const WeatherData = ({ data }) => {
