@@ -1,7 +1,7 @@
 import React from 'react';
 import Location from './Location.js';
 import WeatherData from './WeatherData/index.js';
-import {SUN} from '../../constants/weathers.js';
+import {SUN, OWM_URL, OWM_API_KEY} from '../../constants/weathers.js';
 import transformWeather from "../../services/transformWeather.js";
 import {CircularProgress} from 'material-ui';
 import {PropTypes} from "prop-types";
@@ -12,10 +12,6 @@ const data = {
     humidity: 10,
     wind: '10 m/s'
 }
-
-//const location = "Managua, NI";
-const api_key = "b54e4071c39449846c587ce188be3ed4";
-const url = "https://api.openweathermap.org/data/2.5/weather";
 
 class WeatherLocation extends React.Component {
 
@@ -29,7 +25,7 @@ class WeatherLocation extends React.Component {
 
     //componentWillMount(){}
     handleUpdateClick = () => {
-        const api_weather = `${url}?q=${this.state.city}&appid=${api_key}`;
+        const api_weather = `${OWM_URL}?q=${this.state.city}&appid=${OWM_API_KEY}`;
 
         fetch(api_weather)
             .then(data => {
