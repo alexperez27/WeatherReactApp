@@ -5,6 +5,7 @@ import {SUN, OWM_URL, OWM_API_KEY} from '../../constants/weathers.js';
 import transformWeather from "../../services/transformWeather.js";
 import {CircularProgress} from 'material-ui';
 import {PropTypes} from "prop-types";
+import './styles.css'
 
 const data = {
     temperature: 20,

@@ -36,8 +36,10 @@ class App extends Component {
                     <Grid container>
                         <Grid item xs={12} md={6}>
                             <Paper>
-                                <LocationList cities={cities}
-                                              onSelectedLocation={this.handleSelectionLocation}/>
+                                <LocationList
+                                    index={new Date().getTime()}
+                                    cities={cities}
+                                    onSelectedLocation={this.handleSelectionLocation}/>
                             </Paper>
                         </Grid>
                         <Grid item xs={12} md={6}>
