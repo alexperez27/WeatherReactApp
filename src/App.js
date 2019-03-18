@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
 //import logo from './logo.svg';
 import './App.css';
 import LocationList from "./components/WeatherLocation/LocationList";
@@ -6,6 +7,9 @@ import Grid from '@material-ui/core/Grid';
 import Paper from "@material-ui/core/Paper";
 //import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
 import ForecastExtended from './components/ForecastExtended'
+import {setCity} from './actions/index'
+import {store} from './store/index';
+import PropTypes from 'prop-types'
 
 const cities = [
     "Managua, Nic",
@@ -20,8 +24,11 @@ class App extends Component {
     }
 
     handleSelectionLocation = city => {
-        console.log("handleSelectionLocation", city);
         this.setState({city});
+
+        console.log("handleSelectionLocation", city);
+
+        this.props.dispatchSetCity(city);
     }
 
     render() {
@@ -56,4 +63,16 @@ class App extends Component {
     }
 }
 
-export default App;
+App.propTypes = {
+    setCity: PropTypes.func.isRequired
+}
+
+const mapDispatchToPropsActions = dispatch => (
+    {
+        dispatchSetCity: value => dispatch(setCity(value))
+    }
+);
+
+export default connect(null, mapDispatchToPropsActions)(App);
+
+
